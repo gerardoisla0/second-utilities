@@ -1,0 +1,22 @@
+{
+    "sourceFile": "lib/main.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1657216904558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1657217365575,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         showMediaController: true,\n         enableVolumeControl: true,\n         onCreated: (controller) {\n           controller.setVideoSource(\n-            'assets/example1.mp4',\n+            'assets/example.mp4',\n             sourceType: VideoSourceType.asset,\n             requestAudioFocus: true,\n           );\n         },\n"
+                }
+            ],
+            "date": 1657216904558,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\nimport 'package:native_video_view/native_video_view.dart';\n\nvoid main() => runApp(const MaterialApp(home: MyApp()));\n\nclass MyApp extends StatefulWidget {\n  const MyApp({Key? key}) : super(key: key);\n\n  @override\n  _MyAppState createState() => _MyAppState();\n}\n\nclass _MyAppState extends State<MyApp> {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(\n        title: const Text('Plugin example app'),\n      ),\n      body: _buildVideoPlayerWidget(),\n    );\n  }\n\n  Widget _buildVideoPlayerWidget() {\n    return Container(\n      alignment: Alignment.center,\n      child: NativeVideoView(\n        keepAspectRatio: true,\n        showMediaController: true,\n        enableVolumeControl: true,\n        onCreated: (controller) {\n          controller.setVideoSource(\n            'assets/example1.mp4',\n            sourceType: VideoSourceType.asset,\n            requestAudioFocus: true,\n          );\n        },\n        onPrepared: (controller, info) {\n          debugPrint('NativeVideoView: Video prepared');\n          controller.play();\n        },\n        onError: (controller, what, extra, message) {\n          debugPrint(\n              'NativeVideoView: Player Error ($what | $extra | $message)');\n        },\n        onCompletion: (controller) {\n          debugPrint('NativeVideoView: Video completed');\n        },\n      ),\n    );\n  }\n}\n"
+        }
+    ]
+}

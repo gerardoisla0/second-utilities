@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/native_video_view.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1657322650859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1657322650859,
+            "name": "Commit-0",
+            "content": "library native_video_view;\n\nimport 'dart:async';\nimport 'dart:ffi';\nimport 'dart:io';\n\nimport 'package:flutter/foundation.dart';\nimport 'package:flutter/material.dart';\nimport 'package:flutter/services.dart';\nimport 'package:path_provider/path_provider.dart';\n\npart 'src/controller.dart';\n\npart 'src/media_control.dart';\n\npart 'src/media_controller.dart';\n\npart 'src/video_file.dart';\n\npart 'src/video_source_type.dart';\n\npart 'src/video_widget.dart';\n"
+        }
+    ]
+}

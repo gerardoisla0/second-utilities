@@ -1,0 +1,34 @@
+{
+    "sourceFile": "example/android/app/src/main/kotlin/cl/ceisufro/native_video_view_example/MainActivity.kt",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1657303077020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1657304984651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,18 @@\n   private val CHANNEL = \"samples.flutter.dev/battery\"\n \n   override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {\n     super.configureFlutterEngine(flutterEngine)\n-    MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {\n-      call, result ->\n-      // This method is invoked on the main thread.\n-      // TODO\n+    var channel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)\n+    \n+    channel.setMethodCallHandler { call, result ->\n+        methodResult = result\n+        if (call.method == \"s3_upload\") {\n+            //Add you login here \n+            channel.invokeMethod(\"callBack\", \"data1\")\n+\n+\n+\n+        }\n     }\n   }\n }\n"
+                },
+                {
+                    "date": 1657308319513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import io.flutter.embedding.engine.FlutterEngine\n import io.flutter.plugin.common.MethodChannel\n \n class MainActivity : FlutterActivity() {\n-  private val CHANNEL = \"samples.flutter.dev/battery\"\n+  private val CHANNEL = \"videoview0\"\n \n   override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {\n     super.configureFlutterEngine(flutterEngine)\n     var channel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)\n@@ -15,8 +15,9 @@\n     channel.setMethodCallHandler { call, result ->\n         methodResult = result\n         if (call.method == \"s3_upload\") {\n             //Add you login here \n+            Log.d(\"NVV#FlutterActivity\", \" native_video_view_example ::: FlutterActivity \")\n             channel.invokeMethod(\"callBack\", \"data1\")\n \n \n \n"
+                },
+                {
+                    "date": 1657308478397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import androidx.annotation.NonNull\n import io.flutter.embedding.android.FlutterActivity\n import io.flutter.embedding.engine.FlutterEngine\n import io.flutter.plugin.common.MethodChannel\n+import android.util.Log\n \n class MainActivity : FlutterActivity() {\n   private val CHANNEL = \"videoview0\"\n \n"
+                },
+                {
+                    "date": 1657308523761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,8 @@\n     super.configureFlutterEngine(flutterEngine)\n     var channel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)\n     \n     channel.setMethodCallHandler { call, result ->\n-        methodResult = result\n         if (call.method == \"s3_upload\") {\n             //Add you login here \n             Log.d(\"NVV#FlutterActivity\", \" native_video_view_example ::: FlutterActivity \")\n             channel.invokeMethod(\"callBack\", \"data1\")\n"
+                }
+            ],
+            "date": 1657303077020,
+            "name": "Commit-0",
+            "content": "package cl.ceisufro.native_video_view_example\n\nimport androidx.annotation.NonNull\nimport io.flutter.embedding.android.FlutterActivity\nimport io.flutter.embedding.engine.FlutterEngine\nimport io.flutter.plugin.common.MethodChannel\n\nclass MainActivity : FlutterActivity() {\n  private val CHANNEL = \"samples.flutter.dev/battery\"\n\n  override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {\n    super.configureFlutterEngine(flutterEngine)\n    MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {\n      call, result ->\n      // This method is invoked on the main thread.\n      // TODO\n    }\n  }\n}\n"
+        }
+    ]
+}
